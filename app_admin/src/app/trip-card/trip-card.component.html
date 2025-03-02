@@ -1,16 +1,21 @@
-<div class="card">
-    <div class="card-header">{{ trip.name }}</div>
-    <img src="assets/images/{{ trip.image }}" alt="trip thumbnail" class="card-img-top">
-    <div class="card-body">
-        <h6 class="card-subtitle mb-2 text-muted">
-            {{ trip.resort }}
-        </h6>
-        <p class="card-subtitle mt-3 mb-3 text-muted">
-            {{ trip.length }} only {{ trip.perPerson | currency: 'USD': 'symbol' }} per person
-        </p>
-        <p class="card-text" [innerHTML]="trip.description"></p>
-        <div>
-            <button (click)="editTrip(trip)" class="btn btn-info">Edit Trip</button>
-        </div>
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="/assets/images/logo.png"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" routerLink="">Trips<span class="
+  sr-only ">(current)</span></a>
     </div>
-</div>
+  </div>
+  <div class="navbar-end ">
+    <a class="nav-item" routerLink="login" *ngIf="!isLoggedIn()">
+      <span class="has-icon-left">Log In</span>
+    </a>
+    <a class="nav-item active" (click)="onLogout()" *ngIf="isLoggedIn()">
+      <span class="has-icon-left ">Log Out</span>
+    </a>
+  </div>
+</nav>
